@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!-- link css -->
+    <link rel="stylesheet" href="./assets/style/index.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-light" href="#">Cybersoft</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-secondary" aria-current="page" href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-secondary" aria-current="page" href="#"
+                >Shop</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light active" aria-current="page" href="#"
+                >Form</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link text-secondary dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sport
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- body -->
+    <div class="container">
+      <h3 class="mt-5">HomeProductCreate</h3>
+      <h2 class="fs-1">Create Product</h2>
+      <h2 class="bg-dark text-warning p-3">Product info</h2>
+
+      <div class="form-product row">
+        <div class="form-left col">
+          <div class="form-group">
+            <p>id</p>
+            <input class="form-control" id="id" />
+            <p class="text-danger" id="error_required_id"></p>
+            <p class="text-danger" id="error_min_max_length_id"></p>
+          </div>
+          <div class="form-group">
+            <p>name</p>
+            <input class="form-control" id="name" />
+            <p class="text-danger" id="error_required_name"></p>
+            <p class="text-danger" id="error_min_max_length_name"></p>
+          </div>
+          <div class="form-group">
+            <p>price</p>
+            <input class="form-control" id="price" />
+            <p class="text-danger" id="error_required_price"></p>
+            <p class="text-danger" id="error_min_max_length_price"></p>
+          </div>
+        </div>
+
+        <div class="form-right col">
+          <div class="form-group">
+            <p>image</p>
+            <input class="form-control" id="img" />
+            <p class="text-danger" id="error_required_image"></p>
+            <p class="text-danger" id="error_min_max_length_image"></p>
+          </div>
+          <div class="form-group">
+            <p>productType</p>
+            <select class="form-control" id="type">
+              <option>mobile</option>
+              <option>laptop</option>
+              <option>tablet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <p>product description</p>
+            <textarea
+              id="description"
+              class="form-control"
+              placeholder="product description"
+              id="floatingTextarea"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button id="btnXacNhan" class="btn btn-outline-success">
+          Xác nhận
+        </button>
+        <button id="btnCapNhat" class="btn btn-outline-primary ml-2">
+          Cập nhật
+        </button>
+      </div>
+
+      <div class="form-group mt-5">
+        <p>Nhập tên sản phẩm cần tìm</p>
+        <input class="form-control" id="tuKhoa" oninput="findProduct()"/>
+      </div>
+
+      <div class="mt-2">
+        <table class="table">
+          <thead class="bg-secondary text-warning p-1">
+            <tr>
+              <th>id</th>
+              <th>image</th>
+              <th>name</th>
+              <th>price</th>
+              <th>Description</th>
+              <th>type</th>
+              <th></th>
+            </tr>
+            <img src="" alt="" />
+          </thead>
+          <tbody id="tblProduct">
+            <!-- <tr>
+                        <td id="">1</td>
+                    </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+      integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- modals -->
+    <script src="./models/product.js"></script>
+    <!-- controllers-->
+    <script src="./controllers/index.js"></script>
+  </body>
+</html>
