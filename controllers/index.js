@@ -124,7 +124,6 @@ document.getElementById("btnCapNhat").onclick = function () {
 
 // -----tìm product-----
 function findProduct() {
-  getDanhSachProduct;
   let productKey = document.getElementById("tuKhoa").value;
   if (productKey) {
     var promise = axios({
